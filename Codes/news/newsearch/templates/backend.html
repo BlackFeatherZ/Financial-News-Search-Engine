@@ -1,0 +1,98 @@
+{% load static %}
+<!doctype html>
+
+<script type="text/javascript">
+function isHidden(oDiv){
+	      var vDiv = document.getElementById(oDiv);
+	      vDiv.style.display = (vDiv.style.display == 'none')?'block':'none';
+	    }
+		
+</script>
+
+<html style="height: 920px;width: 100%; background: url({% static "img/background.jpg" %}); background-repeat: no-repeat; background-size: cover;">
+	<div>
+		<div class="upsite" style=" height: 40px; width: 100%; left: 0px;background-color: rgba(193, 210, 240, 0.5);">
+			<div>
+				<a href="http://127.0.0.1:8000/index/" target="_blank" style="margin-left: 10px; font-size: 30px; font-weight: bold; color: white;font-family:STCaiyun">Home</a>
+				<a href="http://127.0.0.1:8000/search/" target="_blank" style="margin-left: 10px; font-size: 30px; font-weight: bold; color: white;font-family:STCaiyun">News</a>
+				<a href="http://127.0.0.1:8000/QA/" target="_blank" style="margin-left: 10px; font-size: 30px;font-weight: bold; color: white;font-family:STCaiyun">Questions</a>
+				<div style="float:right; top:5px;  margin-right: 20px;font-size: 30px; font-weight: bold;cursor:hand; color: white;font-family:STCaiyun" onclick="isHidden('div1')">
+					:More
+				</div>
+			</div>
+		
+			
+			<div id="div1" style="display:none; margin-top: 10px; margin-right:10px; width: 160px; height: auto; border: 4px skyblue solid; text-align: center; float: right; background-color: white;">
+				<div style="top:0px;  margin-right: 10px;font-size: 30px; font-weight: bold; color: white;">
+					<a href="http://127.0.0.1:8000/backend/" target="_blank" style=" font-family:STCaiyun; font-size: 30px;font-weight: bold; color: skyblue;">Backend</a>
+				</div>
+				<div onclick="isHidden('div2')" style="font-family:STCaiyun; cursor:hand; margin-right: 10px;font-size: 30px; font-weight: bold; color: skyblue;">
+					history
+				</div>
+				<div style="margin-left: 2px;">
+					<select  name = "history" id="div2" style="width: 150px; display: none;" size="10">
+						{% if history %}
+ 							<option value = "" style="font-size: 20px;">----------</option>
+ 							{% for h in history %}
+  							<option  value = {{ h }} style="font-size: 20px;">{{ h }}</option>
+  							{% endfor %}
+  							{% else %}
+  							<option value = "" style="font-size: 20px;">Please search something</option>
+  							{% endif %}
+					</select>
+				</div>
+				
+			</div>
+			
+		</div>	
+	</div>
+	
+	
+	
+	
+	<div style="margin-top: 20px;border: 4px white solid; text-align: center; float: left; margin-left: 180px;">
+		<svg id="mySVG" width="700px" height="600px" version="1.1"></svg>
+		<script type="text/javascript">
+			var mysvg = document.getElementById("mySVG");
+			var rec = new Array();//定义一个新的数组
+			var txt = new Array();//定义一个新的数组
+			var len = {{ history_num }}.length;
+			
+			
+			for(var i=0;i<len;i++){//循环
+			        
+			   
+			        
+				rec[i] = document.createElement("rect");//创建标签rect
+				txt[i] = document.createElement("text");//创建标签text
+				mysvg.appendChild(rec[i]);
+				mysvg.appendChild(txt[i]);
+				var h = {{ history_num }}[i];//定义高度
+				
+				//red green blue
+				var r = Math.floor(Math.random()*255);//定义颜色
+				var g = Math.floor(Math.random()*255);
+				var b = Math.floor(Math.random()*255);//随机颜色
+				rec[i].outerHTML="<rect x="+60*i+" y="+(400-h)+" width='42px' height="+h+" style='fill:rgb("+r+","+g+","+b+")'/>";//设置页面展示，还有填充色。
+				
+				txt[i].outerHTML="<text x="+(60*i+5)+" y="+(400-h)+">"+h+"</text>";//设置页面展示，x控制全部数字移动的位置，y控制条形图的高度，还有数字填充。
+			}		
+		</script>
+		</div>
+		<div style=" width: 300px; height: 600px;margin-top: 20px;border: 4px white solid; text-align: center;float: left;" >
+		<h3 style="color: white;">User Search Terms Statistics</h3>
+		<div style="font-size: 20px; word-wrap:break-word;  word-break:break-all;  overflow: hidden;margin: 10px;">
+			{% for h in history %}
+			<div style="color: white;">
+			{{h}}
+			</div>
+			{% endfor %}
+		</div>
+		
+		
+	</div>
+		
+	
+	
+	
+</html>

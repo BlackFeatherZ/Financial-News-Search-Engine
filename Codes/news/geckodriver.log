@@ -1,0 +1,145 @@
+1653137928607	geckodriver	INFO	Listening on 127.0.0.1:48649
+1653137929114	mozrunner::runner	INFO	Running command: "/bin/firefox" "--marionette" "--remote-debugging-port" "46341" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileF7Ti5N"
+1653137930135	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileF7Ti5N/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:46341/devtools/browser/1581b9f9-2053-4a9f-b2b8-acbcfa19d7f6
+1653137931994	Marionette	INFO	Listening on port 46235
+Read port: 46235
+1653137932053	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1653137932926	Marionette	INFO	Stopped listening on port 46235
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+1653138017420	geckodriver	INFO	Listening on 127.0.0.1:40925
+1653138017926	mozrunner::runner	INFO	Running command: "/bin/firefox" "--marionette" "--remote-debugging-port" "46009" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile8aET5t"
+1653138018736	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile8aET5t/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:46009/devtools/browser/f18634e2-815d-4419-a918-f89b669e5392
+1653138020141	Marionette	INFO	Listening on port 44161
+Read port: 44161
+1653138020247	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1653138021327	Marionette	INFO	Stopped listening on port 44161
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1653138135895	geckodriver	INFO	Listening on 127.0.0.1:49859
+1653138136400	mozrunner::runner	INFO	Running command: "/bin/firefox" "--marionette" "--remote-debugging-port" "42017" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilehtQfjh"
+1653138137115	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilehtQfjh/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:42017/devtools/browser/9dfca65e-4228-4549-bcf0-beb6f1acdc07
+1653138138346	Marionette	INFO	Listening on port 37757
+Read port: 37757
+1653138138417	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1653138139932	Marionette	INFO	Stopped listening on port 37757
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1653138227258	geckodriver	INFO	Listening on 127.0.0.1:36769
+1653138227767	mozrunner::runner	INFO	Running command: "/bin/firefox" "--marionette" "--remote-debugging-port" "49589" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilezSHN61"
+1653138228549	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilezSHN61/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49589/devtools/browser/b63f2fe1-d8fb-4553-8503-42ca4085ec40
+1653138229918	Marionette	INFO	Listening on port 45889
+Read port: 45889
+1653138230024	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1653138230811	Marionette	INFO	Stopped listening on port 45889
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1653138262977	geckodriver	INFO	Listening on 127.0.0.1:47855
+1653138263482	mozrunner::runner	INFO	Running command: "/bin/firefox" "--marionette" "--remote-debugging-port" "55521" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileMpWZo1"
+1653138264174	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileMpWZo1/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55521/devtools/browser/42cc1f2b-57af-4b7b-9fbb-62f4887770af
+1653138265371	Marionette	INFO	Listening on port 44955
+Read port: 44955
+1653138265398	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1653138266162	Marionette	INFO	Stopped listening on port 44955
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1653138281772	geckodriver	INFO	Listening on 127.0.0.1:52821
+1653138281856	mozrunner::runner	INFO	Running command: "/bin/firefox" "--marionette" "--remote-debugging-port" "42309" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileVBUyX9"
+1653138282555	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileVBUyX9/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:42309/devtools/browser/e90cecfa-08db-4f92-909d-69e3b3314231
+1653138283946	Marionette	INFO	Listening on port 43065
+Read port: 43065
+1653138284044	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1653138285317	Marionette	INFO	Stopped listening on port 43065
+console.error: services.settings: 
+  main/query-stripping Signature failed  TypeError: NetworkError: Network request failed
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+1653138331939	geckodriver	INFO	Listening on 127.0.0.1:40259
+1653138332046	mozrunner::runner	INFO	Running command: "/bin/firefox" "--marionette" "--remote-debugging-port" "60987" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileOnSE3N"
+1653138332935	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileOnSE3N/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:60987/devtools/browser/0b629e48-e861-49d9-8c21-edfc5944da4e
+1653138334245	Marionette	INFO	Listening on port 44429
+Read port: 44429
+1653138334269	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1653138335023	Marionette	INFO	Stopped listening on port 44429
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+1653138343933	geckodriver	INFO	Listening on 127.0.0.1:39293
+1653138344439	mozrunner::runner	INFO	Running command: "/bin/firefox" "--marionette" "--remote-debugging-port" "47541" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileQo1nyP"
+1653138345120	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileQo1nyP/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:47541/devtools/browser/01efbdf1-1588-4876-8318-56056cef4ede
+1653138346582	Marionette	INFO	Listening on port 46857
+Read port: 46857
+1653138346657	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1653138348170	Marionette	INFO	Stopped listening on port 46857
+console.error: services.settings: 
+  main/query-stripping Signature failed  TypeError: NetworkError: Network request failed
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1653138399863	geckodriver	INFO	Listening on 127.0.0.1:52243
+1653138400371	mozrunner::runner	INFO	Running command: "/bin/firefox" "--marionette" "--remote-debugging-port" "43367" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileFsQe4Z"
+1653138401113	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileFsQe4Z/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:43367/devtools/browser/11362bab-ca5c-4ca4-9cc3-c625347af155
+1653138402413	Marionette	INFO	Listening on port 44295
+Read port: 44295
+1653138402489	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1653138403803	Marionette	INFO	Stopped listening on port 44295
+console.error: services.settings: 
+  main/query-stripping Signature failed  TypeError: NetworkError: Network request failed
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1653138951170	geckodriver	INFO	Listening on 127.0.0.1:53205
+1653138951667	mozrunner::runner	INFO	Running command: "/bin/firefox" "--marionette" "--remote-debugging-port" "40319" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileVm3k6h"
+1653138952705	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileVm3k6h/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:40319/devtools/browser/b5f8a44f-3612-4e3f-8a6f-a22a2b2728e9
+1653138954309	Marionette	INFO	Listening on port 37379
+Read port: 37379
+1653138954392	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1653138955266	Marionette	INFO	Stopped listening on port 37379
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+console.error: services.settings: 
+  main/query-stripping Signature failed  TypeError: NetworkError: Network request failed
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+

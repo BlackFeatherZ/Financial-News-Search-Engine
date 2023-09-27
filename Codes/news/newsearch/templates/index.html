@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	
+<script type="text/javascript">
+         
+    var i=0;
+    setInterval('changeColor()',500);
+        function changeColor(){
+            var div=document.getElementById('char'); //获得div元素
+            var colorArr=['#8A2BE2','#DEB887','#7FFF00','#008B8B','#FF1493']; //建立颜色库
+            if(i==colorArr.length){ 
+                    i=0;
+                }else{
+                    div.style.color=colorArr[i++%colorArr.length]; //循环颜色
+                }
+            }
+			
+	    function isHidden(oDiv){
+	      var vDiv = document.getElementById(oDiv);
+	      vDiv.style.display = (vDiv.style.display == 'none')?'block':'none';
+	    }
+		
+</script>
+	
+<style type="text/css">
+	input[type=checkbox].switch{
+	    outline: none;
+	    appearance: none;
+	    -webkit-appearance: none;
+	    -moz-appearance: none;
+	    position: relative;
+	    width: 1.9rem;
+	    height: 1rem;
+	    border-radius: 50px;
+	    border: 1px solid #ccc;
+	    background-color: #ccc;
+	}
+	input[type=checkbox].switch::after{
+	    content: '';
+	    display: inline-block;
+	    width: 0.8rem;
+	    height: 0.8rem;
+	    border-radius: 50%;
+	    background-color: #fff;
+	    box-shadow: 0 0 2px #999;
+	    transition: left 0.1s linear;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	}
+	input[type=checkbox].switch:checked{
+	    background-color: skyblue;
+	}
+	input[type=checkbox].switch:checked::after{
+	    position: absolute;
+	    top: 0;
+	    left: 50%;
+	}
+</style>
+	
+<head>
+    <title>News Search Engine</title>
+</head>
+
+<body style="height: 920px; width: 100%; background: url({% static "img/background.jpg" %}); background-repeat: no-repeat; background-size: cover;">
+<form class="form-inline" action = "{% url 'newsearch:search_view' %}" method = "GET">
+    <div>
+		<div class="upsite" style=" height: 40px; width: 100%; left: 0px;background-color: rgba(193, 210, 240, 0.5);">
+			<div>
+			
+				<a href="http://127.0.0.1:8000/index/" target="_blank" style="margin-left: 10px; font-size: 30px; font-weight: bold; color: white;font-family:STCaiyun">Home</a>
+				<a href="http://127.0.0.1:8000/search/" target="_blank" style="margin-left: 10px; font-size: 30px; font-weight: bold; color: white;font-family:STCaiyun">News</a>
+				<a href="http://127.0.0.1:8000/QA/" target="_blank" style="margin-left: 10px; font-size: 30px;font-weight: bold; color: white;font-family:STCaiyun">Questions</a>
+				<div style="float:right; top:5px;  margin-right: 20px;font-size: 30px; font-weight: bold;cursor:hand; color: white;font-family:STCaiyun" onclick="isHidden('div1')">
+					:More
+				</div>
+			</div>
+		
+			
+			<div id="div1" style="display:none; margin-top: 10px; margin-right:10px; width: 160px; height: auto; border: 2px skyblue solid; text-align: center; float: right; background-color: white;">
+				<div style="top:0px;  margin-right: 10px;font-size: 30px; font-weight: bold; color: white;">
+					<a href="http://127.0.0.1:8000/backend/" target="_blank" style=" font-family:STCaiyun; font-size: 20px;font-weight: bold; color: skyblue;">Backend</a>
+				</div>
+				<div onclick="isHidden('div2')" style="font-family:STCaiyun; cursor:hand; margin-right: 10px;font-size: 20px; font-weight: bold; color: skyblue;">
+					history
+				</div>
+				<div style="margin-left: 2px;">
+					<select  name = "history" id="div2" style="width: 150px; display: none;" >
+						{% if history %}
+ 							<option value = "" style="font-size: 20px;">----------</option>
+ 							{% for h in history %}
+  							<option  value = {{ h }} style="font-size: 20px;">{{ h }}</option>
+  							{% endfor %}
+  							{% else %}
+  							<option value = "" style="font-size: 20px;">Please search something</option>
+  							{% endif %}
+					</select>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		<div style="text-align: center;">
+   <div class="picture" style="padding-top: 95px;">
+    <img src="{% static "img/logo3.png" %}" style="width: 300px; height: 300px;">
+   </div>
+  </div>
+		
+		<div class="middle" style="text-align: center;">
+			<div class="search-part" style="text-align: center;height: 30px;padding: 20px; font-size: 0;">
+				<input type="text" placeholder="   Get what's new in finance world..."
+				style=" vertical-align:middle;font-size: 20px; height: 50px; width: 400px; border: none; border-radius: 25px 0px 0px 25px;" name="keyword" value="">
+				<button type="submit"
+				style=" margin-left:0px; vertical-align:middle;text-shadow: 0 0 2px black; color: aliceblue; font-style: italic; font-size: 30px; height: 50px;width: 120px; border-radius: 0px 25px 25px 0px;border: none; background-color: cornflowerblue;">search</button>
+			</div>
+			<div class="choice" style="text-align: center; margin-top: 25px; font-size: 30px; font-family: STHupo; color: mediumblue;">
+					<input class="switch" type="checkbox" name="news" value=1 checked/>news
+					<input class="switch" type="checkbox" name="txt" value=1 />txt
+					<input class="switch" type="checkbox" name="doc" value=1 />doc
+					<input class="switch" type="checkbox" name="pdf" value=1 />pdf
+					<input class="switch" type="checkbox" name="img" value=1 />img
+					<input class="switch" type="checkbox" name="mp4" value=1 />mp4
+					<input class="switch" type="checkbox" name="cn" value=1 />Chinese
+					<input class="switch" type="checkbox" name="latest" value=1 />latest
+			</div>
+		</div>
+		
+		<div style="text-align: center; font-size: 20px;">
+			<div style="height: 20px; font-size: 30px;">
+				<h4 id="char">Hot Search!!!</h4>
+			</div>
+			<div style="margin-top: 15px;">
+			{% for m in hot %}
+			<div>
+				<a href="http://127.0.0.1:8000/search/?keyword={{m}}&news=1">{{ m }}</a>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+		
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,488 @@
+{% load static %}
+<!doctype html>
+<html>
+<style type="text/css">
+	input[type=checkbox].switch{
+	    outline: none;
+	    appearance: none;
+	    -webkit-appearance: none;
+	    -moz-appearance: none;
+	    position: relative;
+	    width: 1.9rem;
+	    height: 1rem;
+	    border-radius: 50px;
+	    border: 1px solid #ccc;
+	    background-color: #ccc;
+	}
+	input[type=checkbox].switch::after{
+	    content: '';
+	    display: inline-block;
+	    width: 0.8rem;
+	    height: 0.8rem;
+	    border-radius: 50%;
+	    background-color: #fff;
+	    box-shadow: 0 0 2px #999;
+	    transition: left 0.1s linear;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	}
+	input[type=checkbox].switch:checked{
+	    background-color: skyblue;
+	}
+	input[type=checkbox].switch:checked::after{
+	    position: absolute;
+	    top: 0;
+	    left: 50%;
+	}
+	
+	input[type=checkbox].sort-switch{
+	    outline: none;
+	    appearance: none;
+	    -webkit-appearance: none;
+	    -moz-appearance: none;
+	    position: relative;
+	    width: 1.9rem;
+	    height: 1rem;
+	    border-radius: 50px;
+	    border: 1px solid #ccc;
+	    background-color: #ccc;
+	}
+	input[type=checkbox].sort-switch::after{
+	    content: '';
+	    display: inline-block;
+	    width: 0.8rem;
+	    height: 0.8rem;
+	    border-radius: 50%;
+	    background-color: white;
+	    box-shadow: 0 0 2px #999;
+	    transition: left 0.1s linear;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	}
+	input[type=checkbox].sort-switch:checked{
+	    background-color: cornflowerblue;
+	}
+	input[type=checkbox].sort-switch:checked::after{
+	    position: absolute;
+	    top: 0;
+	    left: 50%;
+	}
+</style>
+
+<script type="text/javascript">
+function isHidden(oDiv){
+	      var vDiv = document.getElementById(oDiv);
+	      vDiv.style.display = (vDiv.style.display == 'none')?'block':'none';
+	    }
+</script>
+
+<form class="form-inline" action = "{% url 'newsearch:search_view' %}" method = "GET">
+<div style="background: url({% static "img/background.jpg" %}); background-repeat: no-repeat; background-size: cover;">
+	<div class="upsite" style=" height: 40px; width: 100%; left: 0px;background-color: rgba(193, 210, 240, 0.5);">
+		<div>
+			<a href="http://127.0.0.1:8000/index/" target="_blank" style="margin-left: 10px; font-size: 30px; font-weight: bold; color: white;font-family:STCaiyun">Home</a>
+			<a href="http://127.0.0.1:8000/search/" target="_blank" style="margin-left: 10px; font-size: 30px; font-weight: bold; color: white;font-family:STCaiyun">News</a>
+			<a href="http://127.0.0.1:8000/QA/" target="_blank" style="margin-left: 10px; font-size: 30px;font-weight: bold; color: white;font-family:STCaiyun">Questions</a>
+			<div style="float:right; top:5px;  margin-right: 20px;font-size: 30px; font-weight: bold;cursor:hand; color: white;font-family:STCaiyun" onclick="isHidden('div1')">
+				:More
+			</div>
+		</div>
+	
+		
+		<div id="div1" style="display:none; margin-top: 10px; margin-right:10px; width: 160px; height: auto; border: 2px skyblue solid; text-align: center; float: right; background-color: white;">
+			<div style="top:0px;  margin-right: 10px;font-size: 30px; font-weight: bold; color: white;">
+				<a href="http://127.0.0.1:8000/backend/" target="_blank" style=" font-family:STCaiyun; font-size: 30px;font-weight: bold; color: skyblue;">Backend</a>
+			</div>
+			<div onclick="isHidden('div2')" style="font-family:STCaiyun; cursor:hand; margin-right: 10px;font-size: 30px; font-weight: bold; color: skyblue;">
+				history
+			</div>
+			<div style="margin-left: 2px;">
+				<select  name = "history" id="div2" style="width: 150px; display: none;" size="10">
+							{% if history %}
+ 							<option value = "" style="font-size: 20px;">----------</option>
+ 							{% for h in history %}
+  							<option  value = {{ h }} style="font-size: 20px;">{{ h }}</option>
+  							{% endfor %}
+  							{% else %}
+  							<option value = "" style="font-size: 20px;">Please search something</option>
+  							{% endif %}
+				</select>
+			</div>
+			
+		</div>
+		
+	</div>
+	
+	
+	<div class="middle" style="margin-top: 20px;">
+		<nav class="navbar navbar-light bg-light">
+			<center>
+				<form class="form-inline">
+					<div style=" top: 10px; left: 20px;">
+						<div style="display:inline-block; vertical-align:middle;">
+							<img src="{% static "img/logo3.png" %}" width="60" height="60">
+						</div>
+						<!--input删掉了name&value-->
+						<div style="display:inline-block;">
+							<input class="form-control mr-sm-2" type="search" placeholder="  Get what's new in finance world..."
+							aria-label="Keyword" list = "searchlist"
+							style="margin-left: 10px;  vertical-align:middle;font-size: 20px; height: 50px; width: 400px; border-radius: 25px 0px 0px 25px;" name = 'keyword' value = "">	<!--autocomplete = “on”-->
+							<datalist id = "searchlist" name="auto-completion">
+								{% if completion %}
+									{% for c in completion %}
+										<option  value = {{ c }}>{{ c }}</option>
+										{% endfor %}
+								{% endif %}
+							</datalist>
+							<button class="btn btn-outline-success my-2 my-sm-0" type="submit" 
+							        style=" vertical-align:middle;text-shadow: 0 0 2px black; color: aliceblue; font-style: italic; font-size: 20px; height: 50px;
+									       width: 120px; border-radius: 0px 25px 25px 0px;border: none; background-color: cornflowerblue;">Search</button>
+						</div>
+					</div>
+					
+				</form>
+			</center>
+		 </nav>
+	</div>
+	
+	<div style="margin-top: 20px;width: 100%; height: 40px; text-align: center;margin-left: 0px;background-color: rgba(193, 210, 240, 0.5);">
+		<div style="text-align: center; cursor: hand; margin-top: 10px; color:deepskyblue;" onclick="isHidden('div3')">
+			<img src="{% static "img/settings.png" %}" style="height: 40px; width: 40px; margin-top: 0px; vertical-align: middle;">
+			
+		</div>
+	</div>
+	
+	<div style="display: none;" id="div3">
+		<div style="text-align: center; margin-top: 0px; height: 40px; width: 100%; left: 0px;background-color: rgba(193, 210, 240, 0.5);">
+			<div class="choice" style="font-size: 20px; color: dodgerblue;font-family: STHupo;">
+				<input class="switch" type="checkbox" name="news" value=1 checked/>news
+				<input class="switch" type="checkbox" name="txt" value=1 />txt
+				<input class="switch" type="checkbox" name="doc" value=1 />doc
+				<input class="switch" type="checkbox" name="pdf" value=1 />pdf
+				<input class="switch" type="checkbox" name="img" value=1 />img
+				<input class="switch" type="checkbox" name="mp4" value=1 />mp4
+				<input class="switch" type="checkbox" name="cn" value=1 />Chinese
+				<input class="switch" type="checkbox" name="latest" value=1 />latest
+			</div>
+		</div>
+		
+		<div style="text-align: center; margin-top: 0px; height: 40px; idth: 100%; left: 0px;background-color: rgba(193, 210, 240, 0.5);">
+			<div class="sort-choice" style="font-size: 20px; font-family: STHupo; color:mediumblue">
+				<input class="sort-switch" type="checkbox" name="date" value=1/>sort by date
+				<input class="sort-switch" type="checkbox" name="filetype" value="score" />sort by score
+				<select name = "recommend" size: 4 style="width: 100px; height: 30px;">
+     					<option value = "" style="font-size: 15px;">----------</option>
+     					<option  value = "stock" style="font-size: 15px;">stock</option>
+        				<option  value = "company" style="font-size: 15px;">company</option>
+        				<option  value = "product" style="font-size: 15px;">product</option>
+    				</select>
+    				sort by category
+			</div>
+		</div>
+	</div>
+</div>
+</form>
+
+{% if black_word %}
+
+ <h3>Contains forbidden words! No results shown.</h3>
+{% elif no_results != 1 %}
+ <div class="txtCentrado margenSup20 grisDC">
+ 
+ 
+ 
+
+<h3>Top results for your search: "{{search_term}}"
+{% if settings.0 == 1 %}
+ + "Chinese"
+ {% endif %}
+{% if settings.3 == 1 %}
+ + "news"
+ {% endif %}
+{% if settings.4 == 1 %}
+ + "txt"
+ {% endif %}
+{% if settings.5 == 1 %}
+ + "doc"
+ {% endif %}
+{% if settings.6 == 1 %}
+ + "pdf"
+ {% endif %}
+{% if settings.7 == 1 %}
+ + "img"
+ {% endif %}
+{% if settings.8 == 1 %}
+ + "mp4"
+ {% endif %}
+{% if settings.9 == 1 %}
+ + "latest"
+ {% endif %}
+, showing top hits accoring to 
+{% if settings.2 == 1 %}
+date: 
+{% elif settings.1 == 1 %}
+similarity:
+{% else  %}
+score:
+ {% endif %}
+</h3>
+
+
+ 
+ 
+ </div>
+ <div class="search results">
+ {% if settings.10 != "" %}
+  <h3 style="cursor:hand" onclick="isHidden('recommend_results')">Sort by {{ settings.10 }}:</h3>
+  <div class="images" id = 'recommend_results'>
+ {% for mytuple in recommendation %}
+ <div style="margin-top: 40px; margin-left:0px;">
+ <div style="font-size: 17px; width:55%;">
+  <a href="{{ mytuple.1 }}" style="overflow: hidden;">{{ mytuple.0 }}</a>
+ </div>
+ <div style="margin-top: 5px;">
+  <div style="float: left;color: #999999;margin-left:5px;">
+   type: [{{ mytuple.2 }}]
+  </div>
+ </div>
+ </div>
+ {% endfor %}
+ </div>
+ {% endif %}
+ 
+  {% if settings.3 == 1 %}
+  <h3 style="cursor:hand; margin-top:50px;" onclick="isHidden('news_results')">News:</h3>
+  <div class="images" id = 'news_results'>
+ {% for mytuple in results.2 %}
+ <div style="margin-top: 40px; margin-left:0px;">
+ <div style="font-size: 17px; width:55%;">
+  <a href="{{ mytuple.6 }}" style="overflow: hidden;">{{ mytuple.1 }}</a>
+ </div>
+ <div style=" word-wrap:break-word;  word-break:break-all;  overflow: hidden;  width: 55%; margin-left: 0px; top: auto; font-size: 15px; margin-top: 10px;">
+  {{ mytuple.5 }}
+ </div>
+ <div style="margin-top: 5px;">
+  <div style="float: left; color: #999999;">
+   {{ mytuple.2 }}
+  </div>
+  <div style="float: left;color: #999999;margin-left:5px;">
+   {{ mytuple.3 }}
+  </div>
+  <div style="float: left;color: #999999;margin-left:5px;">
+   type: [{{ mytuple.7 }}]
+  </div>
+ </div>
+ </div>
+ {% endfor %}
+ </div>
+ {% endif %}
+ 
+ {% if settings.0 == 1 %}
+ <h3 style="cursor:hand; margin-top:50px;" onclick="isHidden('cn_results')">Chinese News:</h3>
+ <div class="images" id = 'cn_results'>
+ {% for mytuple in results.0 %}
+ <div style="margin-top: 40px; margin-left:0px;">
+ <div style="font-size: 17px; width:55%;">
+  <a href="{{ mytuple.6 }}">{{ mytuple.1 }}</a>
+ </div>
+ <div style=" word-wrap:break-word;  word-break:break-all;  overflow: hidden;  width: 55%; margin-left: 0px; top: auto; font-size: 15px; margin-top: 10px;">
+  {{ mytuple.5 }}
+ </div>
+ <div style="margin-top: 5px;">
+  <div style="float: left; color: #999999;">
+   {{ mytuple.2 }}
+  </div>
+  <div style="float: left;color: #999999;margin-left:5px;">
+   {{ mytuple.3 }}
+  </div>
+  <div style="float: left;color: #999999;margin-left:5px;">
+   type: [{{ mytuple.7 }}]
+  </div>
+ </div>
+ </div>
+ {% endfor %}
+ </div>
+ {% endif %}
+ 
+  {% if settings.1 == 1 %}
+  <div class="images" id = 'qa_results'>
+ {% for mytuple in results.1 %}
+ <div style="margin-top:50px;">
+ <div style="font-size: 17px; width:55%;">
+  Question: {{ mytuple.1 }} 
+ </div>
+ <div style="margin-top: 5px;">
+  <div style="float: left; color: #999999;">
+   Answer: {{ mytuple.5 }}
+  </div>
+ </div>
+ {% endfor %}
+ </div>
+ {% endif %}
+ 
+  {% if settings.4 == 1 %}
+  <h3 style="cursor:hand; margin-top:50px;" onclick="isHidden('txt_results')">txt:</h3>
+  <div class="images" id = 'txt_results'>
+ {% for mytuple in results.3 %}
+  <div style="margin-top: 40px; margin-left:0px;">
+ <div style="font-size: 17px; width:55%;">
+  <a href={% static mytuple.6 %}>{{ mytuple.1 }}</a>
+ </div>
+ <div style=" word-wrap:break-word;  word-break:break-all;  overflow: hidden;  width: 55%; margin-left: 0px; top: auto; font-size: 15px; margin-top: 10px;">
+  {{ mytuple.5 }}
+ </div>
+ <div style="margin-top: 5px;">
+  <div style="float: left; color: #999999;">
+   {{ mytuple.2 }}
+  </div>
+  <div style="float: left;color: #999999;margin-left:5px;">
+   {{ mytuple.3 }}
+  </div>
+  <div style="float: left;color: #999999;margin-left:5px;">
+   type: [{{ mytuple.7 }}]
+  </div>
+ </div>
+ </div>
+ {% endfor %}
+ </div>
+ {% endif %}
+ 
+   {% if settings.5 == 1 %}
+   <h3 style="cursor:hand; margin-top:50px;" onclick="isHidden('doc_results')">doc:</h3>
+   <div class="images"  id = 'doc_results'>
+ {% for mytuple in results.4 %}
+<div style="margin-top: 40px; margin-left:0px;">
+ <div style="font-size: 17px; width:55%;">
+  <a href={% static mytuple.6 %}>{{ mytuple.1 }}</a>
+ </div>
+ <div style=" word-wrap:break-word;  word-break:break-all;  overflow: hidden;  width: 55%; margin-left: 0px; top: auto; font-size: 15px; margin-top: 10px;">
+  {{ mytuple.5 }}
+ </div>
+ <div style="margin-top: 5px;">
+  <div style="float: left; color: #999999;">
+   {{ mytuple.2 }}
+  </div>
+  <div style="float: left;color: #999999;margin-left:5px;">
+   {{ mytuple.3 }}
+  </div>
+  <div style="float: left;color: #999999;margin-left:5px;">
+   type: [{{ mytuple.7 }}]
+  </div>
+ </div>
+ </div>
+ {% endfor %}
+ </div>
+ {% endif %}
+ 
+   {% if settings.6 == 1 %}
+   <h3 style="cursor:hand; margin-top:50px;" onclick="isHidden('pdf_results')">pdf:</h3>
+    <div class="images"  id = 'pdf_results'>
+ {% for mytuple in results.5 %}
+<div style="margin-top: 40px; margin-left:0px;">
+ <div style="font-size: 17px; width:55%;">
+  <a href={% static mytuple.6 %}>{{ mytuple.1 }}</a>
+ </div>
+ <div style=" word-wrap:break-word;  word-break:break-all;  overflow: hidden;  width: 55%; margin-left: 0px; top: auto; font-size: 15px; margin-top: 10px;">
+  {{ mytuple.5 }}
+ </div>
+ <div style="margin-top: 5px;">
+  <div style="float: left; color: #999999;">
+   {{ mytuple.2 }}
+  </div>
+  <div style="float: left;color: #999999;margin-left:5px;">
+   {{ mytuple.3 }}
+  </div>
+  <div style="float: left;color: #999999;margin-left:5px;">
+   type: [{{ mytuple.7 }}]
+  </div>
+ </div>
+ </div>
+ {% endfor %}
+ </div>
+ {% endif %}
+ 
+   {% if settings.7 == 1 %}
+   <h3 style="cursor:hand; margin-top:50px;" onclick="isHidden('img_results')">img:</h3>
+   <div class="images"  id = 'img_results'>
+ {% for mytuple in results.6 %}
+ <div style="margin-top: 40px;margin-left: 5%">
+  <div style="font-size: 17px; width: 55%; clear: both; margin-left: 10px;">
+  {{ mytuple.1 }}
+  </div>
+  <div style="margin-top: 10px;">
+  <img src={{ mytuple.5 }} width="200" height="150">
+  </div>
+</div> 
+ {% endfor %}
+ </div>
+ {% endif %}
+ 
+   {% if settings.8 == 1 %}
+   <h3 style="cursor:hand; margin-top:50px;" onclick="isHidden('mp4_results')">mp4:</h3>
+   <div class="images" id = 'mp4_results'>
+ {% for mytuple in results.7 %}
+ <div class="images" style="margin-top: 20px; margin-left: 5%;">
+ <div>
+  <a href= {{ mytuple.6 }} >{{ mytuple.1 }}</ a>
+ </div>
+ <div style="margin-top: 10px;">
+  <iframe src={{ mytuple.5 }} scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width = "900" height = "500"> </iframe>
+ </div>
+</div>
+ {% endfor %}
+ </div>
+ {% endif %}
+ 
+   {% if settings.9 == 1 %}
+ <h3 style="cursor:hand; margin-top:50px;" onclick="isHidden('latest_results')">Latest news:</h3>
+   <div class="images" id = 'latest_results'>
+ {% for mytuple in latest %}
+ <div style="margin-top: 40px; margin-left:0px;">
+ <div style="font-size: 17px; width:55%;">
+  <a href="{{ mytuple.6 }}" style="overflow: hidden;">{{ mytuple.1 }}</a>
+ </div>
+ <div style="margin-top: 5px;">
+  <div style="float: left; color: #999999;">
+   {{ mytuple.2 }}
+  </div>
+  <div style="float: left;color: #999999;margin-left:5px;">
+   {{ mytuple.3 }}
+  </div>
+  <div style="float: left;color: #999999;margin-left:5px;">
+   type: [{{ mytuple.7 }}]
+  </div>
+ </div>
+ </div>
+ 
+ 
+ {% endfor %}
+ </div>
+ {% endif %}
+ 
+</div>
+<div>
+<h3></h3>
+</div>
+<div>
+<h3 style=" margin-top:50px;">Results on other sites:</h3>
+</div>
+<div>
+<a href="https://cn.bing.com/search?q={{search_term}}">"{{ search_term }}" on bing</a>
+<a href="https://s.weibo.com/weibo?q={{search_term}}">"{{ search_term }}" on weibo</a>
+<a href="http://biz.finance.sina.com.cn/suggest/lookup_n.php?q={{search_term}}">"{{ search_term }}" on Sina Finance</a>
+</div>
+{%elif suggestion %}
+<h3>No results found, do you mean:
+{%for suggest in suggestion %}
+  <a href="http://127.0.0.1:8000/search/?keyword={{suggest}}&news=1">{{suggest}}</a>
+  {% endfor %}?
+  </h3>
+{%elif not search_term %}
+ <h3>Insert your search here.</h3>
+
+{%elif no_results == 1 %}
+ <h3>No results found.</h3>
+{% endif %}
+</html>
